@@ -2,37 +2,37 @@ JENKINS DECLARATIVE PIPELINE VS SCRIPTED PIPELINE
 
 Declarative Pipeline Sample
 
-pipeline {
-    agent any
+    pipeline {
+        agent any
 
-    stages {
-        stage("Build") {
-            steps {
-                echo "Some code compilation here..."
+        stages {
+            stage("Build") {
+                steps {
+                    echo "Some code compilation here..."
+                }
             }
-        }
 
-        stage("Test") {
-            steps {
-                echo "Some tests execution here..."
-                echo 1
+            stage("Test") {
+                steps {
+                    echo "Some tests execution here..."
+                    echo 1
+                }
             }
         }
     }
-}
 
 Scripted Pipeline Example
 
-node {
-    stage("Build") {
-        echo "Some code compilation here..."
-    }
+    node {
+        stage("Build") {
+            echo "Some code compilation here..."
+        }
 
-    stage("Test") {
-        echo "Some tests execution here..."
-        echo 1
+        stage("Test") {
+            echo "Some tests execution here..."
+            echo 1
+        }
     }
-}
 
 Comparison: 
 #1: Declarative Pipeline will fail if there is an error in any stage in the whole script whereas Scripted Pipeline will fail only for the particular stage that is erroneous. 
@@ -44,57 +44,57 @@ DECLARATIVE PIPELINE WHEN BLOCK EXAMPLE
 
 Below Pipeline will execute Test stage only if env.FOO equals bar.
 
-pipeline {
-    agent any
+    pipeline {
+        agent any
 
-    options {
-        timestamps()
-        ansiColor("xterm")
-    }
-
-    stages {
-        stage("Build") {
-            options {
-                timeout(time: 1, unit: "MINUTES")
-            }
-            steps {
-                sh 'printf "\\e[31mSome code compilation here...\\e[0m\\n"'
-            }
+        options {
+            timestamps()
+            ansiColor("xterm")
         }
 
-        stage("Test") {
-            when {
-                environment name: "FOO", value: "bar"
+        stages {
+            stage("Build") {
+                options {
+                    timeout(time: 1, unit: "MINUTES")
+                }
+                steps {
+                    sh 'printf "\\e[31mSome code compilation here...\\e[0m\\n"'
+                }
             }
-            options {
-                timeout(time: 2, unit: "MINUTES")
-            }
-            steps {
-                sh 'printf "\\e[31mSome tests execution here...\\e[0m\\n"'
+
+            stage("Test") {
+                when {
+                    environment name: "FOO", value: "bar"
+                }
+                options {
+                    timeout(time: 2, unit: "MINUTES")
+                }
+                steps {
+                    sh 'printf "\\e[31mSome tests execution here...\\e[0m\\n"'
+                }
             }
         }
     }
-}
 
 
 
 SCRIPTED PIPELINE IF-ELSE FILTER EXAMPLE
 
-node {
-    timestamps {
-        ansiColor("xterm") {
-            stage("Build") {
-                timeout(time: 1, unit: "MINUTES") {
-                    sh 'printf "\\e[31mSome code compilation here...\\e[0m\\n"'
+    node {
+        timestamps {
+            ansiColor("xterm") {
+                stage("Build") {
+                    timeout(time: 1, unit: "MINUTES") {
+                        sh 'printf "\\e[31mSome code compilation here...\\e[0m\\n"'
+                    }
                 }
-            }
-            if (env.FOO == "bar") {
-                stage("Test") {
-                    timeout(time: 2, unit: "MINUTES") {
-                        sh 'printf "\\e[31mSome tests execution here...\\e[0m\\n"'
+                if (env.FOO == "bar") {
+                    stage("Test") {
+                        timeout(time: 2, unit: "MINUTES") {
+                            sh 'printf "\\e[31mSome tests execution here...\\e[0m\\n"'
+                        }
                     }
                 }
             }
         }
     }
-}
