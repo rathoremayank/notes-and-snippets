@@ -1,4 +1,4 @@
-JENKINS DECLARATIVE PIPELINE VS SCRIPTED PIPELINE
+#JENKINS DECLARATIVE PIPELINE VS SCRIPTED PIPELINE
 
 Declarative Pipeline Sample
 
@@ -35,10 +35,10 @@ Scripted Pipeline Example
     }
 
 Comparison: 
-#1: Declarative Pipeline will fail if there is an error in any stage in the whole script whereas Scripted Pipeline will fail only for the particular stage that is erroneous. 
-#2: Declarative Pipeline allows to "Restart from stage" whereas Scripted Pipeline does not. 
-#3: Declarative pipeline options block: This feature is supported by both pipeline types, however the declarative pipeline handles it a bit better. In the declarative pipeline, options are separated from the pipeline script logic. The scripted pipeline also supports timestamps, ansiColor and timeout options, but it requires a different code.
-#4: The "when block" that the declarative pipeline supports. Can be used as a conditional filter to a stage. To acheive same thing in a scripted pipeline we have to use if-else statements.  
+### 1: Declarative Pipeline will fail if there is an error in any stage in the whole script whereas Scripted Pipeline will fail only for the particular stage that is erroneous. 
+### 2: Declarative Pipeline allows to "Restart from stage" whereas Scripted Pipeline does not. 
+### 3: Declarative pipeline options block: This feature is supported by both pipeline types, however the declarative pipeline handles it a bit better. In the declarative pipeline, options are separated from the pipeline script logic. The scripted pipeline also supports timestamps, ansiColor and timeout options, but it requires a different code.
+### 4: The "when block" that the declarative pipeline supports. Can be used as a conditional filter to a stage. To acheive same thing in a scripted pipeline we have to use if-else statements.  
 
 DECLARATIVE PIPELINE WHEN BLOCK EXAMPLE
 
