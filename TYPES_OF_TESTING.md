@@ -1,9 +1,9 @@
 # The four broad types of testing are: 
 
-## Unit Testing (White Box)
-## Integration Testing or String Testing
-## System Testing (Black Box)
-## User Acceptance Testing or Acceptance Testing
+## 1. Unit Testing (White Box)
+## 2. Integration Testing or String Testing
+## 3. System Testing (Black Box)
+## 4. User Acceptance Testing or Acceptance Testing
 
 ## Unit Testing
 #### UNIT TESTING is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object. In SDLC, STLC, V Model, Unit testing is first level of testing done before integration testing. Unit testing is a WhiteBox testing technique that is usually performed by the developer. Though, in a practical world due to time crunch or reluctance of developers to tests, QA engineers also do unit testing. 
