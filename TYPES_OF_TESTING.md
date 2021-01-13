@@ -5,6 +5,9 @@
 ## 3. System Testing (Black Box)
 ## 4. User Acceptance Testing or Acceptance Testing
 
+![alt text](https://github.com/rathoremayank/notes-and-snippets/blob/main/testing.png?raw=true)
+
+
 ### Brief explanation on above testing techniques
 
 ## 1. Unit Testing
